@@ -1,17 +1,40 @@
-import React, { useState } from 'react';
-
-import SearchIcon from "./search.svg";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import "./App.css";
+import SearchIcon from "./search.svg";
+
+const Champions_URL='https://ddragon.leagueoflegends.com/cdn/14.7.1/data/en_US/champion.json'
 
 const App = () => {
-    const [isHovered, setIsHovered] = useState([]);
-    
-    
-    return(
-        <div className="app">
-            <h1>League Of Legends</h1>
+  const [czempioni, setCzempioni] = useState([]);
+  const [isHovered, setIsHovered] = useState([]);
 
-            <div className="search">
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(Champions_URL);
+        const championData = response.data.data;
+        
+        
+        const wyodrębnieniCzempioni = Object.entries(championData).map(([klucz, wartość]) => ({
+          nazwa: wartość.name,
+          obraz: `https://ddragon.leagueoflegends.com/cdn/14.7.1/img/champion/${wartość.image.full}`,
+        }));
+        setCzempioni(wyodrębnieniCzempioni);
+      } catch (error) {
+        console.error('Błąd podczas pobierania danych:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return (
+    <div className="app">
+      <h1>League Lookup</h1>
+        
+        
+        <div className="search">
                 <input 
                 placeholder="Search your champion"
                 value=""
@@ -23,34 +46,20 @@ const App = () => {
                 onClick={()=>{}}
                 />
             </div>
-            <div className="container">
-                <div className="map">
-                    
-                
-                <div
-                    className="image-container"
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-    >
-                        <img src="https://steamuserimages-a.akamaihd.net/ugc/1613933970484956626/B2F6E1405654192A2A031B79F89B73BB9E2C44B0/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" 
-                        alt="Summoners Rift"
-                        width="400"
-                        height="400"
-                        style={{ transform: isHovered ? 'scale(1.1)' : 'scale(1)' }}
+      
+      <ul>
+        {czempioni.map(czempion => (
+          <li key={czempion.nazwa}>
+            <img src={czempion.obraz} alt={czempion.nazwa} />
+            <span>{czempion.nazwa}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-                        /> 
-                        
-                        
-                    </div>
-                    <div>
-                    
-                        <h3>Summoners Rift</h3>
-                    </div>
-                </div>
+export default App;
 
-            </div>
-        </div>
-    );
-}
 
 export default App;
