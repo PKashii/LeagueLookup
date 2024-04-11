@@ -10,6 +10,7 @@
 :root {
   --font-roboto: "Roboto Slab", serif;
   --font-raleway: "Raleway", sans-serif;
+  --primary: rgb(161, 145, 255);
 }
 
 body {
@@ -26,7 +27,8 @@ body {
   flex-direction: column;
 }
 
-h1 {
+
+.app h1{
   font-size: 3rem;
   letter-spacing: 0.9px;
   background: linear-gradient(
@@ -95,3 +97,70 @@ h1 {
     color: gold;
   }
   
+
+  header nav{
+    display:flex;
+    gap: 16px;
+    justify-content: end;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  header nav h1
+  {
+  
+    margin-right: auto;
+    border-bottom: 3px solid rgb(169, 190, 49);
+    color:rgb(0, 139, 93);
+  }
+  header nav a
+  {
+    text-decoration:  none;
+    padding: 6px;
+    border-radius: 4px;
+    color: white;
+  }
+  header nav a.active
+  {
+    background: var(--primary);
+  }
+  
+  main{
+    max-width: 1200px;
+    margin: 40px auto;
+  }
+  .card{
+    
+    border:  1px solid #000f25;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px rgb(39, 37, 37);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+    max-width: 300px;
+    display:  inline-block;
+    background-color:  #3e5374;
+      
+    }
+    
+    .card .cardImg{
+      
+      max-width:  60%;
+      height: auto;
+      border-radius:  40%;
+      margin-bottom: 10px;
+      
+    }
+    .card .cardTT{
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0;
+      color: rgb(255, 255, 255);
+    }
+    .card .cardOP{
+      font-family: Arial, Helvetica, sans-serif;
+      color:rgb(255, 255, 255);
+      
+    }
+.select
+{
+  margin-right: auto;
+}
