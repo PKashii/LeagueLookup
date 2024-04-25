@@ -10,28 +10,29 @@
 :root {
   --font-roboto: "Roboto Slab", serif;
   --font-raleway: "Raleway", sans-serif;
-  --primary: rgb(161, 145, 255);
 }
 
 body {
   font-family: var(--font-roboto);
-  background-color: #0a192f;
+  background: url('/public/runeterra-targon-09.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .app {
   padding: 4rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  
+  
 }
 
-
-.app h1{
+h1 {
   font-size: 3rem;
   letter-spacing: 0.9px;
   background: linear-gradient(
+    
     90deg,
     rgba(249, 211, 180, 1) 0%,
     rgba(249, 211, 180, 0) 100%
@@ -40,11 +41,14 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   width: fit-content;
+  text-align: center;
+  
 }
 
 .search {
   width: 71%;
   margin: 4rem 0 2rem;
+  
 
   display: flex;
   align-items: center;
@@ -54,7 +58,8 @@ body {
   border-radius: 3rem;
   background: #1f2123;
   -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #bcc267, -5px -5px 7px #bcc267;
+  
 }
 
 .search input {
@@ -66,37 +71,105 @@ body {
   padding-right: 1rem;
 
   outline: none;
-  color: #a1a1a1;
+  color: #bcc267;
   background: #1f2123;
+  
 }
 
 .search img {
   width: 35px;
   height: 35px;
   cursor: pointer;
+  filter: hue-rotate(45deg) saturate(150%) brightness(110%);
 }
 
-.image-container {
-    position: relative;
-    width: 400px;
-    height: 400px;
-    overflow: hidden;
-  }
-  
-  .image-container img {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .image-container:hover img {
-    transform: scale(1.1);
-  }
+ul {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-  h3 {
-    color: gold;
-  }
+li {
+  width: 250px;
+  height: 250px;
+  margin: 1.5rem;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
+  box-shadow: 0px 13px 10px -7px rgba(221, 197, 197, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1f2123; 
   
+}
+
+li img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+}
+
+
+
+li:hover {
+  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #bcc267, -5px -5px 7px #bcc267;
+  transform: scale(1.05, 1.05);
+}
+
+li span {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #bcc267;
+  text-align:center;
+  line-height:24px;
+  
+}
+
+a {
+  position: relative;
+  color: #e5ff00; 
+  text-decoration: none; 
+  text-align:center;
+  
+}
+
+h2 {
+  
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 4px;
+  font-weight: 800;
+  color: #bcc267;
+  text-align:center;
+  
+}
+h3{
+  margin-top: 30px; 
+  text-transform: uppercase;
+  font-size: 15px;
+  letter-spacing: 4px;
+  font-weight: 500;
+  color: #bcc267;
+  text-align:center;
+  line-height:24px;
+}
+
+
+
 
   header nav{
     display:flex;
