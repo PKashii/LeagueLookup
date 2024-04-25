@@ -1,54 +1,73 @@
-import "../App.css";
-import SearchIcon from "../search.svg";
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import "./App.css";
+import SearchIcon from "./search.svg";
 
+const Champions_URL='https://ddragon.leagueoflegends.com/cdn/14.7.1/data/en_US/champion.json'
 
-export default function Home()
-{
-    const [isHovered, setIsHovered] = useState([]);
-    return(
-        <div className="app">
-            <h1 >League Of Legends</h1>
+const App = () => {
+  const [Champions, setChampions] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
-            <div className="search">
-                <input 
-                placeholder="Search your champion"
-                value=""
-                onChange={()=>{}}
-                />
-                <img
-                src={SearchIcon}
-                alt="search"
-                onClick={()=>{}}
-                />
-            </div>
-            <div className="container">
-                <div className="map">
-                    
-                
-                <div
-                    className="image-container"
-                    onMouseEnter={() => setIsHovered(true)}
-                    onMouseLeave={() => setIsHovered(false)}
-    >
-                        <img src="https://steamuserimages-a.akamaihd.net/ugc/1613933970484956626/B2F6E1405654192A2A031B79F89B73BB9E2C44B0/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" 
-                        alt="Summoners Rift"
-                        width="400"
-                        height="400"
-                        style={{ transform: isHovered ? 'scale(1.1)' : 'scale(1)' }}
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(Champions_URL);
+        const championData = response.data.data;
+        
+        const splittedChampions = Object.entries(championData).map(([key, value]) => ({
+          name: value.name,
+          title: value.title,
+          champArt: `https://ddragon.leagueoflegends.com/cdn/14.7.1/img/champion/${value.image.full}`,
+          statsPage: `https://LeagueLookUp.pl/${value.name}`,
+        }));
+        setChampions(splittedChampions);
+      } catch (error) {
+        console.error('Błąd podczas pobierania danych:', error);
+      }
+    };
 
-                        /> 
-                        
-                        
-                    </div>
-                    <div>
-                    
-                        <h3>Summoners Rift</h3>
-                    </div>
-                </div>
+    fetchData();
+  }, []);
 
-            </div>
-        </div>
-    )
-}
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredChampions = Champions.filter(champion =>
+    champion.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  return (
+    <div className="app">
+      <h1>League LookUp</h1>
+        
+      <div className="search">
+        <input 
+          placeholder="Search your champion"
+          value={searchTerm}
+          onChange={handleSearch}
+        />
+        <img
+          src={SearchIcon}
+          alt="search"
+          onClick={()=>{}}
+        />
+      </div>
+      
+      <ul>
+        {filteredChampions.map(champion => (
+          <li key={champion.name}>
+            <a href={champion.statsPage} target="_blank" rel="noopener noreferrer">
+              <img src={champion.champArt} alt={champion.name} />
+              <h2>{champion.name}</h2>
+              <h3>{champion.title}</h3>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default App;
