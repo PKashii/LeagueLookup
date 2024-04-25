@@ -1,6 +1,9 @@
+import { useEffect, useState, Component } from "react";
 import React from "react";
+
 import "../App.css";
 import pfp from './temo.png'
+import axios, { Axios } from "axios";
 
 /*const { MongoClient } = require("mongodb");
 
@@ -28,21 +31,39 @@ async function FetchData() {
 }
 
 FetchData();*/
-
-
-function Card(){
-    return(
-        <div className="select">
-        <div className="card">
-            <img className="cardImg" src={pfp} /*{props.image}*/ alt="ChampionPFP"></img>
-            <h2 className="cardTT">Teemo</h2>  
-            <p className='cardOP'>Toplaner</p>    
-        </div>
-
-        </div>
-    )
+function Event()
+{
+    const [champs, setChamp] =useState([]);
+    useEffect(()=> 
+{
+  axios.get('/Champ/get')
+  .then(champ => setChamp(champ.data))
+  .catch(err =>console.log(err))
+},[])
+  
+  
+  return(
+    <div>
+        <table>
+          <thead>
+          <tr>
+            <th>
+              Champ
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+            {
+              champs.map(champ =>{
+                <tr>
+                  <td>{champ.championName}</td>
+                </tr>
+              })
+            }
+          </tbody>
+        </table>
+    </div>
+  )
 }
-//{props.nazwa}
-//{props.opis}
-export default Card
 
+export default Event;

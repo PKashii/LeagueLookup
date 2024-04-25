@@ -16,14 +16,10 @@ const router =createBrowserRouter(createRoutesFromElements(
      </Route>
 ))
 const App = () => {
-    
-    
-    
     return(
-        
-        /**/
-            <RouterProvider router={router}/>
-        
+        <div>
+            <RouterProvider router={router}/>   
+         </div>
     );
 }
 
