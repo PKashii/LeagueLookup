@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import "./App.css";
-import SearchIcon from "./search.svg";
+import "../App.css";
+import SearchIcon from "../search.svg";
 
 const Champions_URL='https://ddragon.leagueoflegends.com/cdn/14.7.1/data/en_US/champion.json'
 

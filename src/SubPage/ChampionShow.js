@@ -5,65 +5,41 @@ import "../App.css";
 import pfp from './temo.png'
 import axios, { Axios } from "axios";
 
-/*const { MongoClient } = require("mongodb");
 
+const MatchList = () => {
+  const [matches, setMatches] = useState([]);
 
-const uri ="mongodb+srv://cpylink:uCfAbqfXflflMtOe@leaguedata.6lal5ny.mongodb.net/?retryWrites=true&w=majority&appName=LeagueData";
-const client = new MongoClient(uri);
+  useEffect(() => {
+    const fetchMatches = async () => {
+      try {
+        const response = await axios.get("http://localhost:3000/itemAssets"); 
+        setMatches(response.data);
+      } catch (error) {
+        console.error("Error occurred:", error);
+      }
+    };
 
-let data = [];
+    fetchMatches();
 
-async function FetchData() {
-  await client.connect();
-  await client.db("admin").command({ ping: 1 });
-  console.log("Connected successfuly");
-  const database = client.db("league_lookup");
-  const coll = database.collection("matches");
-  try {
-    let cursor = await coll.find();
-    await cursor.forEach((element) => {
-      if (element != undefined) data.push(element);
-    });
-  } finally {
-    await client.close();
-  }
-  console.log(data);
-}
+    
+    return () => {
+      
+    };
+  }, []); 
 
-FetchData();*/
-function Event()
-{
-    const [champs, setChamp] =useState([]);
-    useEffect(()=> 
-{
-  axios.get('/Champ/get')
-  .then(champ => setChamp(champ.data))
-  .catch(err =>console.log(err))
-},[])
-  
-  
-  return(
+  return (
     <div>
-        <table>
-          <thead>
-          <tr>
-            <th>
-              Champ
-            </th>
-          </tr>
-          </thead>
-          <tbody>
-            {
-              champs.map(champ =>{
-                <tr>
-                  <td>{champ.championName}</td>
-                </tr>
-              })
-            }
-          </tbody>
-        </table>
+      <h1>Match List</h1>
+      <ul>
+        {matches.map((match, index) => (
+          <li key={index}>
+            <img src={match.url}></img>
+            {match.id}
+          </li>
+        ))}
+      </ul>
     </div>
-  )
-}
+  );
+};
 
-export default Event;
+export default MatchList;
