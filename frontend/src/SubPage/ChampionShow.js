@@ -29,7 +29,7 @@ const MatchList = () => {
 
   return (
     <div>
-      <h1>Match List</h1>
+      <h1>Item List</h1>
       <ul>
         {matches.map((match, index) => (
           <li key={index}>
