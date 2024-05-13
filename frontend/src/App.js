@@ -12,7 +12,7 @@ import RootLayout from './layout/RootLayout'
 const router =createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<RootLayout/>}>
          <Route path="/" element={<Home/>}></Route>
-         <Route path="ChampionShow" element={<ChampionShow/>}></Route>
+         <Route path="/build/:id" element={<ChampionShow/>}></Route>
      </Route>
 ))
 const App = () => {

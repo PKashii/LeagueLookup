@@ -237,3 +237,9 @@ h3{
 {
   margin-right: auto;
 }
+
+.ChampShow img {
+  width: 45px;
+  height: 45px;
+  border-radius:  55%;
+}

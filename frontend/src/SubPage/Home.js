@@ -19,7 +19,7 @@ const App = () => {
           name: value.name,
           title: value.title,
           champArt: `https://ddragon.leagueoflegends.com/cdn/14.7.1/img/champion/${value.image.full}`,
-          statsPage: `https://LeagueLookUp.pl/${value.name}`,
+          statsPage: `http://localhost:3000/build/${value.name}`,
         }));
         setChampions(splittedChampions);
       } catch (error) {

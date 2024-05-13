@@ -8,7 +8,7 @@ export default function RootLayout()
             <nav>
                 <h1 className='Nav'>Menu</h1>
                 <NavLink to="/">Home</NavLink>
-                <NavLink to="ChampionShow">Champion Show</NavLink>
+                
              </nav>
             </header>
             <main>
