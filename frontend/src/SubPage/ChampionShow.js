@@ -7,7 +7,7 @@ import React, { useState, useEffect, Component } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom'; 
 
-const ChampionShow = () => { // Remove the id prop
+const ChampionShow = () => { 
   const [champion, setChampion] = useState(null);
   const [itemData, setItemData] = useState([]);
   const [championData, setChampionData] = useState(null);
