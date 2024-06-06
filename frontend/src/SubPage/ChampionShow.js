@@ -22,7 +22,6 @@ const ChampionShow = () => {
         const itemResponse = await axios.get(`http://localhost:3000/itemAssets`);
         setItemData(itemResponse.data);
 
-        // Sprawdzenie, czy champion jest ulubiony
         const favoriteResponse = await axios.get(`http://localhost:3000/favorites`);
         const isFav = favoriteResponse.data.some(fav => fav.id === parseInt(id));
         setIsFavorite(isFav);
