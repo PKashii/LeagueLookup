@@ -243,3 +243,13 @@ h3{
   height: 45px;
   border-radius:  55%;
 }
+.favorite-icon {
+  cursor: pointer;
+  font-size: 24px;
+  margin-left: 10px;
+  color: grey;
+}
+
+.favorite-icon.favorite {
+  color: gold;
+}
