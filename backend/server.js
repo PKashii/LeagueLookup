@@ -92,8 +92,8 @@ const data=[{
 app.post('/api/login', (req, res) => {
   const { login, password } = req.body;
 
-  console.log(req.body); // Logowanie całego obiektu
-  console.log(login); // Logowanie loginu, aby sprawdzić, czy jest poprawny
+  console.log(req.body); 
+  console.log(login);
 
   const user = data.find(u => u.login === login);
   if (!user) {
