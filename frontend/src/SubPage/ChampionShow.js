@@ -27,15 +27,18 @@ const ChampionShow = () => {
 
         const itemResponse = await axios.get(`http://localhost:3000/itemAssets`);
         setItemData(itemResponse.data);
-          
-        const favoriteResponse = await axios.get(`http://localhost:3000/favorites`, {
-          headers: {
-            'Authorization': localStorage.getItem('token') 
-          }
-        });
-        const isFav = favoriteResponse.data.some(favId => favId === id);
-        setIsFavorite(isFav);
-        console.log(isFav);
+          if(isLoggedIn)
+            {
+              const favoriteResponse = await axios.get(`http://localhost:3000/favorites`, {
+                headers: {
+                  'Authorization': localStorage.getItem('token') 
+                }
+              });
+              const isFav = favoriteResponse.data.some(favId => favId === id);
+              setIsFavorite(isFav);
+            }
+        
+        
         
       } catch (error) {
         console.error('Error fetching data:', error);
