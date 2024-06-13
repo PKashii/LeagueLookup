@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "../App.css";
 import SearchIcon from "./search.svg";
 
-const Champions_URL = 'http://localhost:5000/championAssets'; // URL Backend
+const Champions_URL = "http://localhost:5000/championAssets"; // URL Backend
 
 const App = () => {
   const [Champions, setChampions] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(Champions_URL);
-        
+
         const championData = response.data;
 
-        const splittedChampions = championData.map(champion => ({
+        const splittedChampions = championData.map((champion) => ({
           name: champion.name,
           title: champion.title,
           champArt: champion.url,
-          statsPage: `http://localhost:3000/build/${champion.name}`,
+          statsPage: `http://localhost:3000/build/${champion.id}`,
         }));
         setChampions(splittedChampions);
       } catch (error) {
-        console.error('Błąd podczas pobierania danych:', error);
+        console.error("Błąd podczas pobierania danych:", error);
       }
     };
 
@@ -35,7 +35,7 @@ const App = () => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredChampions = Champions.filter(champion =>
+  const filteredChampions = Champions.filter((champion) =>
     champion.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -48,24 +48,20 @@ const App = () => {
       <div className="look">
         <span>Look</span>
       </div>
-  
+
       <div className="search">
         <input
           placeholder="Search Your Champion"
           value={searchTerm}
           onChange={handleSearch}
         />
-        <img
-          src={SearchIcon}
-          alt="szukaj"
-          onClick={() => {}}
-        />
+        <img src={SearchIcon} alt="szukaj" onClick={() => {}} />
       </div>
-  
+
       <ul>
-        {filteredChampions.map(champion => (
+        {filteredChampions.map((champion) => (
           <li key={champion.name}>
-            <a href={champion.statsPage} target="_blank" rel="noopener noreferrer">
+            <a href={champion.statsPage} rel="noopener noreferrer">
               <img src={champion.champArt} alt={champion.name} />
               <h2>{champion.name}</h2>
               <h3>{champion.title}</h3>
@@ -75,9 +71,6 @@ const App = () => {
       </ul>
     </div>
   );
-  
-  
-  
 };
 
 export default App;

@@ -15,7 +15,8 @@
 
 body {
   font-family: var(--font-roboto);
-  background: url('/public/runeterra-targon-09.jpg') no-repeat center center fixed;
+  background: url("/public/runeterra-targon-09.jpg") no-repeat center center
+    fixed;
   background-size: cover;
 }
 
@@ -25,8 +26,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
-  
 }
 
 h1 {
@@ -46,7 +45,7 @@ h1 {
 
 .league-text {
   font-size: 3rem;
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
   text-align: center;
   display: flex;
   align-items: flex-start;
@@ -77,9 +76,8 @@ h1 {
   font-size: 5em;
   font-weight: bold;
   color: #ffd700;
-  text-transform: uppercase; 
+  text-transform: uppercase;
 }
-
 
 .ChampShowDiv {
   max-width: 800px;
@@ -153,7 +151,6 @@ h1 {
 .search {
   width: 71%;
   margin: 4rem 0 2rem;
-  
 
   display: flex;
   align-items: center;
@@ -164,7 +161,6 @@ h1 {
   background: #1f2123;
   -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
   box-shadow: 5px 5px 7px #bcc267, -5px -5px 7px #bcc267;
-  
 }
 
 .search input {
@@ -178,7 +174,6 @@ h1 {
   outline: none;
   color: #bcc267;
   background: #1f2123;
-  
 }
 
 .search img {
@@ -212,8 +207,7 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #1f2123; 
-  
+  background-color: #1f2123;
 }
 
 li img {
@@ -222,8 +216,6 @@ li img {
   border-radius: 50%;
   border: 2px solid #ccc;
 }
-
-
 
 li:hover {
   -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
@@ -238,115 +230,98 @@ li span {
   letter-spacing: 2px;
   font-weight: 500;
   color: #bcc267;
-  text-align:center;
-  line-height:24px;
-  
+  text-align: center;
+  line-height: 24px;
 }
 
 a {
   position: relative;
-  color: #e5ff00; 
-  text-decoration: none; 
-  text-align:center;
-  
+  color: #e5ff00;
+  text-decoration: none;
+  text-align: center;
 }
 
 h2 {
-  
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
   font-size: 15px;
   letter-spacing: 4px;
   font-weight: 800;
   color: #bcc267;
-  text-align:center;
-  
+  text-align: center;
 }
-h3{
-  margin-top: 30px; 
+h3 {
+  margin-top: 30px;
   text-transform: uppercase;
   font-size: 15px;
   letter-spacing: 4px;
   font-weight: 500;
   color: #bcc267;
-  text-align:center;
-  line-height:24px;
+  text-align: center;
+  line-height: 24px;
 }
 
+header nav {
+  display: flex;
+  gap: 16px;
+  justify-content: end;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header nav h1 {
+  margin-right: auto;
+  border-bottom: 3px solid rgb(169, 190, 49);
+  color: rgb(0, 139, 93);
+}
+header nav a {
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 4px;
+  color: white;
+}
+header nav a.active {
+  background: var(--primary);
+}
 
+main {
+  max-width: 1200px;
+  margin: 40px auto;
+}
+.card {
+  border: 1px solid #000f25;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px rgb(39, 37, 37);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  max-width: 300px;
+  display: inline-block;
+  background-color: #3e5374;
+}
 
-
-  header nav{
-    display:flex;
-    gap: 16px;
-    justify-content: end;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  header nav h1
-  {
-  
-    margin-right: auto;
-    border-bottom: 3px solid rgb(169, 190, 49);
-    color:rgb(0, 139, 93);
-  }
-  header nav a
-  {
-    text-decoration:  none;
-    padding: 6px;
-    border-radius: 4px;
-    color: white;
-  }
-  header nav a.active
-  {
-    background: var(--primary);
-  }
-  
-  main{
-    max-width: 1200px;
-    margin: 40px auto;
-  }
-  .card{
-    
-    border:  1px solid #000f25;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px rgb(39, 37, 37);
-    padding: 20px;
-    margin: 10px;
-    text-align: center;
-    max-width: 300px;
-    display:  inline-block;
-    background-color:  #3e5374;
-      
-    }
-    
-    .card .cardImg{
-      
-      max-width:  60%;
-      height: auto;
-      border-radius:  40%;
-      margin-bottom: 10px;
-      
-    }
-    .card .cardTT{
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0;
-      color: rgb(255, 255, 255);
-    }
-    .card .cardOP{
-      font-family: Arial, Helvetica, sans-serif;
-      color:rgb(255, 255, 255);
-      
-    }
-.select
-{
+.card .cardImg {
+  max-width: 60%;
+  height: auto;
+  border-radius: 40%;
+  margin-bottom: 10px;
+}
+.card .cardTT {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  color: rgb(255, 255, 255);
+}
+.card .cardOP {
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(255, 255, 255);
+}
+.select {
   margin-right: auto;
 }
 
 .ChampShow img {
   width: 45px;
   height: 45px;
-  border-radius:  55%;
+  border-radius: 55%;
 }
 .favorite-icon {
   cursor: pointer;
