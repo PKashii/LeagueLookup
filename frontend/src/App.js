@@ -9,7 +9,7 @@ import ChampionShow from './SubPage/ChampionShow';
 import Login from './SubPage/Login';
 import RootLayout from './layout/RootLayout';
 import Register from './SubPage/Register';
-import Favoritues from './SubPage/Favoritues'
+import Favorites from './SubPage/Favorites'
 
 const router =createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<RootLayout/>}>
@@ -17,7 +17,7 @@ const router =createBrowserRouter(createRoutesFromElements(
          <Route path="/build/:id" element={<ChampionShow/>}></Route>
          <Route path="/login" element={<Login/>}></Route>
          <Route path="/register" element={<Register/>}></Route>
-         <Route path="/favoritues" element={<Favoritues/>}></Route>
+         <Route path="/Favorites" element={<Favorites/>}></Route>
          
      </Route>
 ))
