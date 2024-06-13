@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;400;700&display=swap");
 
 * {
   margin: 0;
@@ -31,10 +32,122 @@ body {
 h1 {
   font-size: 3rem;
   letter-spacing: 0.9px;
-  
+  background: linear-gradient(
+    90deg,
+    rgba(255, 235, 205, 1) 50%,
+    rgba(252, 250, 249, 0.87) 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   width: fit-content;
   text-align: center;
-  
+}
+
+.league-text {
+  font-size: 3rem;
+  font-family: 'Roboto Slab', serif;
+  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.league {
+  color: #ffd700;
+}
+
+.up {
+  vertical-align: middle;
+  margin-left: 0.2em;
+  font-size: 0.5em;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.look {
+  margin-top: -0.3em;
+  text-align: center;
+  flex: 1;
+}
+
+.look span {
+  font-size: 5em;
+  font-weight: bold;
+  color: #ffd700;
+  text-transform: uppercase; 
+}
+
+
+.ChampShowDiv {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1f2123;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  color: #bcc267;
+  text-align: center;
+}
+
+.ChampHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.ChampShow {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  margin-right: 10px;
+}
+
+.ChampShow img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.favorite-icon {
+  cursor: pointer;
+  font-size: 24px;
+  color: grey;
+}
+
+.favorite-icon.favorite {
+  color: gold;
+}
+
+.items-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.item {
+  width: 150px;
+  margin: 10px;
+  text-align: center;
+}
+
+.item img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.item h3 {
+  font-size: 1rem;
+  margin-top: 5px;
 }
 
 .search {
@@ -236,7 +349,6 @@ h3{
   border-radius:  55%;
 }
 .favorite-icon {
-  all:unset;
   cursor: pointer;
   font-size: 24px;
   margin-left: 10px;
@@ -245,4 +357,54 @@ h3{
 
 .favorite-icon.favorite {
   color: gold;
+}
+.login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #1f2123;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  color: #bcc267;
+}
+
+.login-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.2rem;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #1f2123;
+  color: #bcc267;
+  outline: none;
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: #bcc267;
+}
+
+.login-form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #bcc267;
+  color: #1f2123;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button[type="submit"]:hover {
+  background-color: #a9be31;
 }
