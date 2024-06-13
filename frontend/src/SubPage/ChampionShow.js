@@ -77,12 +77,13 @@ const ChampionShow = () => {
             <h1 className="ChampShow">
               <img src={championData.url} alt={`Not found`} />
               {champion.name}
-              <span 
+              {isLoggedIn ?(<span 
                 className={`favorite-icon ${isFavorite ? 'favorite' : ''}`} 
                 onClick={handleFavoriteToggle}
               >
                 ★
-              </span>
+              </span>):(<span></span>)}
+              
             </h1>
           ) : (
             <li className="ChampShow">
