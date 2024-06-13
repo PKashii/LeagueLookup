@@ -77,21 +77,20 @@ const ChampionShow = () => {
             <h1 className="ChampShow">
               <img src={championData.url} alt={`Not found`} />
               {champion.name}
-              {isLoggedIn? (<span 
+              <span 
                 className={`favorite-icon ${isFavorite ? 'favorite' : ''}`} 
                 onClick={handleFavoriteToggle}
               >
                 ★
-              </span>) :(<div></div>)}
-              
+              </span>
             </h1>
           ) : (
-            <h1 className="ChampShow">
+            <li className="ChampShow">
               <img src={`Not found`} alt="Not found" /> 
               {champion.name}
-            </h1>
+            </li>
           )}
-          <h2>Items:</h2>
+          
           <ul>
             {champion.items.map((itemId, index) => {
               const item = itemData.find(item => parseInt(item.id) === parseInt(itemId));
@@ -100,7 +99,7 @@ const ChampionShow = () => {
                   {item ? (
                     <div>
                       <img src={item.url} alt={`Item ${itemId}`} />
-                      <p>{item.name}</p>
+                      <h3>{item.name}</h3>
                     </div>
                   ) : (
                     <span>Item {itemId} not found</span>
@@ -111,11 +110,11 @@ const ChampionShow = () => {
           </ul>
         </div>
       ) : (
-        
         <p>...</p>
       )}
     </div>
   );
 };
+
 
 export default ChampionShow;
