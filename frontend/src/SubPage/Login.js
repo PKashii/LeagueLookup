@@ -2,7 +2,7 @@ import "../App.css";
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const [login, setLogin] = useState('');
@@ -14,14 +14,14 @@ const Login = () => {
     
     const token = localStorage.getItem('token');
     if (token) {
-      window.location.href = '/';
+        window.location.href = '/';
     }
 }, []);
   const handleSubmit = async (e) => {
       e.preventDefault();
 
       try {
-          const response = await axios.post('http://localhost:5000/api/login', { login, password });
+          const response = await axios.post('http://localhost:5000/login', { login, password });
           const token = response.data.token;
 
           
@@ -36,7 +36,7 @@ const Login = () => {
           setIsLoggedIn(false);
       }
   };
-  const item = localStorage.getItem('token');
+
   return (
       
       <div>
@@ -54,6 +54,7 @@ const Login = () => {
           </form>
           {message && <p>{message}</p>}
           {isLoggedIn && <p>Wait!</p>}
+          <p>Don't have an account? <Link to="/register">Register here</Link></p>
       </div>
   );
 };
