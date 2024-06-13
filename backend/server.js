@@ -264,6 +264,10 @@ app.listen(PORT, () => {
 });
 
 
+<<<<<<< HEAD
 
 
 connect().catch(console.error);
+=======
+connect().catch(console.error);
+>>>>>>> 47ead492bec5b4177d884ed232563e4d53a0c3e9
