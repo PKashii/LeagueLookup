@@ -27,9 +27,9 @@ const Login = () => {
           
           localStorage.setItem('token', token);
 
+          
           setMessage('Logged in successfully!');
           setIsLoggedIn(true);
-
           window.location.href = '/';
       } catch (error) {
           setMessage('Invalid username or password');
