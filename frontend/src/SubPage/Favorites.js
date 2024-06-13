@@ -54,7 +54,7 @@ const Favorites = () => {
           <li key={index} onClick={() => handleChampionClick(champion.id)} style={{ cursor: 'pointer' }}>
             <div>
               <img src={champion.url} alt={`Champion ${champion.name}`} />
-              <p>{champion.name}</p>
+              <h2>{champion.name}</h2>
             </div>
           </li>
         ))}

@@ -30,7 +30,12 @@ const Login = () => {
           
           setMessage('Logged in successfully!');
           setIsLoggedIn(true);
-          window.location.href = '/';
+
+          setTimeout(() => {
+            window.location.href = '/';;
+          }, 3000);
+
+          
       } catch (error) {
           setMessage('Invalid username or password');
           setIsLoggedIn(false);
@@ -38,24 +43,31 @@ const Login = () => {
   };
 
   return (
-      
-      <div>
-          <h2>Login</h2>
-          <form onSubmit={handleSubmit}>
-              <div>
-                  <label>Login</label>
-                  <input type="text" value={login} onChange={(e) => setLogin(e.target.value)} />
-              </div>
-              <div>
-                  <label>Password</label>
-                  <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-              </div>
-              <button type="submit">Login</button>
-          </form>
-          {message && <p>{message}</p>}
-          {isLoggedIn && <p>Wait!</p>}
-          <p>Don't have an account? <Link to="/register">Register here</Link></p>
+    <div>
+      <div className="app">
+        <h1>Login</h1>
+        <form className="login-form" onSubmit={handleSubmit}>
+          <div>
+            <label>Login</label>
+            <input type="text" value={login} onChange={(e) => setLogin(e.target.value)} />
+          </div>
+          <div>
+            <label>Password</label>
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <p>Don't have an account? <Link to="/register">Register here</Link></p>
+          </div>
+          
+          <button type="submit">Login</button>
+        </form>
       </div>
+      {message && (
+        <p style={{ backgroundColor: '#d4edda', color: '#155724', padding: '10px', borderRadius: '5px', marginTop: '10px' }}>
+          {message}
+        </p>
+      )}
+      {isLoggedIn}
+      
+    </div>
   );
 };
 
