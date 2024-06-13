@@ -27,7 +27,7 @@ const ChampionShow = () => {
 
         const itemResponse = await axios.get(`http://localhost:3000/itemAssets`);
         setItemData(itemResponse.data);
-
+          
         const favoriteResponse = await axios.get(`http://localhost:3000/favorites`, {
           headers: {
             'Authorization': localStorage.getItem('token') 
