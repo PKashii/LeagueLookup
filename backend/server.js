@@ -201,7 +201,7 @@ app.get("/favorites", authenticateToken, async (req, res) => {
     if (!user) {
       return res.status(404).send("User not found");
     }
-
+    console.log(user.favourites);
     res.status(200).json(user.favourites);
   } catch (error) {
     console.error("Error fetching favorites:", error);

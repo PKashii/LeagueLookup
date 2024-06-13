@@ -32,18 +32,16 @@ const ChampionShow = () => {
           `http://localhost:3000/itemAssets`
         );
         setItemData(itemResponse.data);
-        if (isLoggedIn) {
-          const favoriteResponse = await axios.get(
-            `http://localhost:3000/favorites`,
-            {
-              headers: {
-                Authorization: localStorage.getItem("token"),
-              },
-            }
-          );
-          const isFav = favoriteResponse.data.some((favId) => favId === id);
-          setIsFavorite(isFav);
-        }
+        const favoriteResponse = await axios.get(
+          `http://localhost:3000/favorites`,
+          {
+            headers: {
+              Authorization: localStorage.getItem("token"),
+            },
+          }
+        );
+        const isFav = favoriteResponse.data.some((favId) => favId === id);
+        setIsFavorite(isFav);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -85,12 +83,16 @@ const ChampionShow = () => {
             <h1 className="ChampShow">
               <img src={championData.url} alt={`Not found`} />
               {championData.name}
-              <span
-                className={`favorite-icon ${isFavorite ? "favorite" : ""}`}
-                onClick={handleFavoriteToggle}
-              >
-                ★
-              </span>
+              {isLoggedIn ? (
+                <span
+                  className={`favorite-icon ${isFavorite ? "favorite" : ""}`}
+                  onClick={handleFavoriteToggle}
+                >
+                  ★
+                </span>
+              ) : (
+                <span />
+              )}
             </h1>
           ) : (
             <li className="ChampShow">
