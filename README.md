@@ -16,5 +16,4 @@ Aplikacja ma na celu przekazanie informacji na temat najbardziej aktualnych reko
 * Możliwość dodawania do zakładki <i>Ulubione</i> najczęściej wybieranych postaci,
 * Szybki dostęp do danych dzięki wykorzystaniu MongoDB do zapisywania danych,
 * Integracja aplikacji z Discord Botem, który aktualizuje informacje na bieżąco,
-* Wyszukiwanie wybranego przez siebie gracza oraz przejrzenie jego ostatnich gier,
 * potencjalne <i>dodatkowe funkcjonalności</i> wraz z rozwojem aplikacji.
