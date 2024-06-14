@@ -7,7 +7,7 @@ Jest to aplikacja Webowa napisana w języku JavaScript z wykorzystaniem bibliote
 
 # Funkcjonalność
 
-Aplikacja ma na celu przekazanie informacji na temat najbardziej aktualnych rekomendowanych build'ów na każdą postać w grze League of Legends oraz posiada możliwość wyszukania wybranego gracza za pomocą nazwy z gry oraz tagu.
+Aplikacja ma na celu przekazanie informacji na temat najbardziej aktualnych rekomendowanych build'ów na każdą postać w grze League of Legends;.
 <br />
 <br />
 <h2>Przykładowe funkcjonalności:</h2>
