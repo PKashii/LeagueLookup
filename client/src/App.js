@@ -13,6 +13,7 @@ import ChampionShow from "./SubPage/ChampionShow";
 import Login from "./SubPage/Login";
 import Register from "./SubPage/Register";
 import Favorites from "./SubPage/Favorites";
+import Search from "./SubPage/playerSearch/Search";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,6 +23,8 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/favorites" element={<Favorites />} />
+      <Route path="/Search" element={<Search />} />
+  
     </Route>
   )
 );
