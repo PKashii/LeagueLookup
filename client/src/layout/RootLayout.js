@@ -37,6 +37,9 @@ const RootLayout = () => {
           <NavLink to="/" className="nav-link">
             Home
           </NavLink>
+          <NavLink to="/Search" className="nav-link">
+              Search Player
+          </NavLink>
           {isLoggedIn && (
             <NavLink to="/favorites" className="nav-link">
               Favorites
