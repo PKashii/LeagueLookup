@@ -3,7 +3,7 @@ Aplikacja napisana przez Przemyslawa Kaczorka, Filipa Krysiaka i Mateusza Hutoro
 
 # Opis Aplikacji
 
-Jest to aplikacja Webowa napisana w języku JavaScript z wykorzystaniem bibliotek React.js. Program zbiera informacje dot. Postaci, graczy i itemów dla głównej areny w League of Legends - Summoner's Rift poprzez łączenie się z API Riot Games i zbieraniu informacji dot. najlepszych graczy z największych regionów oraz przefiltrowanie ich za pomocą autorskiego algorytmu, który następnie wyświetla informacje użytkownikowi. Wspomniane informacje są zapisywane w bazie danych MongoDB oraz aktualizowane na bieżąco, aby użytkownicy zawsze mieli dostęp do najnowszych danych.
+Jest to aplikacja Webowa napisana w języku JavaScript z wykorzystaniem bibliotek React.js oraz środowiska uruchomieniowego Tauri. Program zbiera informacje dot. Postaci, graczy i itemów dla głównej areny w League of Legends - Summoner's Rift poprzez łączenie się z API Riot Games i zbieraniu informacji dot. najlepszych graczy z największych regionów oraz przefiltrowanie ich za pomocą autorskiego algorytmu, który następnie wyświetla informacje użytkownikowi. Wspomniane informacje są zapisywane w bazie danych MongoDB oraz aktualizowane na bieżąco, aby użytkownicy zawsze mieli dostęp do najnowszych danych.
 
 # Funkcjonalność
 
