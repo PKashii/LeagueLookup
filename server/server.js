@@ -5,6 +5,7 @@ const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const axios = require("axios");
 dotenv.config();
 
 const app = express();
@@ -260,7 +261,68 @@ app.delete("/favorites", authenticateToken, async (req, res) => {
     res.status(500).send("Internal server error");
   }
 });
+app.get("/championAssets/:name", async (req, res) => {
+  try {
+    const championName = req.params.id;
+    const championAssets = await client
+      .db("league_lookup")
+      .collection("championAssets")
+      .findOne({ name: championName });
+    res.status(200).json(championAssets);
+  } catch (error) {
+    console.error("Error fetching champion assets:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
+app.get("/iconAssets", async (req, res) => {
+  try {
+    const iconAssets = await client
+      .db("league_lookup")
+      .collection("iconAssets")
+      .find({})
+      .toArray();
+    res.status(200).json(iconAssets);
+  } catch (error) {
+    console.error("Error fetching icon assets:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+const servers = {
+  euw1: "europe",
+  eun1: "europe",
+  na1: "north_america",
+  kr: "asia",
+  br1: "south_america",
+ 
+};
+
+app.get('/api/searchPlayer', async (req, res) => {
+  const { gameName, tagLine, server } = req.query;
+
+  try {
+    
+    if (!servers[server]) {
+      return res.status(400).send("Invalid server");
+    }
+
+    const region = servers[server];
+
+    const puuidResponse = await axios.get(`https://${region}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/${gameName}/${tagLine}?api_key=${process.env.RIOT_API_KEY}`);
+const encryptedPUUID = puuidResponse.data.puuid;
+
+    const playerInfoResponse = await axios.get(`https://${server}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${encryptedPUUID}?api_key=${process.env.RIOT_API_KEY}`);
+    const playerInfoData = playerInfoResponse.data;
+
+    const matchIdsResponse = await axios.get(`https://${region}.api.riotgames.com/lol/match/v5/matches/by-puuid/${encryptedPUUID}/ids?api_key=${process.env.RIOT_API_KEY}`);
+    const matchIdsData = matchIdsResponse.data;
+
+    const matchHistoryData = [];
+    for (const matchId of matchIdsData) {
+      const matchResponse = await axios.get(`https://${region}.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${process.env.RIOT_API_KEY}`);
+      const matchData = matchResponse.data;
+      matchHistoryData.push(matchData);
+    }
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
